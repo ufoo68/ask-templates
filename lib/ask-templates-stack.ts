@@ -18,7 +18,6 @@ export class AskTemplatesStack extends cdk.Stack {
     new s3deploy.BucketDeployment(this, 'Deploy', {
       sources: [s3deploy.Source.asset('./assets')],
       destinationBucket: bucket,
-      distributionPaths: ['/*'],
     })
   }
 }

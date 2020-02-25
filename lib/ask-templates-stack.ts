@@ -1,9 +1,24 @@
-import * as cdk from '@aws-cdk/core';
+import * as cdk from '@aws-cdk/core'
+import * as s3 from '@aws-cdk/aws-s3'
+import * as iam from '@aws-cdk/aws-iam'
+import * as s3deploy from '@aws-cdk/aws-s3-deployment'
 
 export class AskTemplatesStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
-    super(scope, id, props);
+    super(scope, id, props)
 
-    // The code that defines your stack goes here
+    const bucket = new s3.Bucket(this, 'Bucket')
+
+    bucket.addToResourcePolicy(new iam.PolicyStatement({
+      actions: ['s3:GetObject'],
+      resources: [`${bucket.bucketArn}/*`],
+      principals: [new iam.AccountRootPrincipal()],
+    }))
+
+    new s3deploy.BucketDeployment(this, 'Deploy', {
+      sources: [s3deploy.Source.asset('./assets')],
+      destinationBucket: bucket,
+      distributionPaths: ['/*'],
+    })
   }
 }

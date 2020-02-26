@@ -2,7 +2,6 @@ import * as cdk from '@aws-cdk/core'
 import * as s3 from '@aws-cdk/aws-s3'
 import * as iam from '@aws-cdk/aws-iam'
 import * as s3deploy from '@aws-cdk/aws-s3-deployment'
-import { countResources } from '@aws-cdk/assert'
 
 export class AskTemplatesStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {

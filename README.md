@@ -13,7 +13,7 @@ ask new --url https://asktemplatesstack-bucket83908e77-x9vhv4xdr8m4.s3-ap-northe
 ## How to extend this templates
 
 1. Fork this repository
-2. Open [templates.json](./assets\templates.json)
+2. Open [templates.json](./assets/templates.json)
 3. Add your github repository url of Alexa skill template(Please add list above)
 4. Checkout branch and commit your forked repository
 5. Create pull-request

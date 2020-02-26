@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - masterr
+  pull_request:
+    types: [closed]
+    branches:
+      - master
 jobs:
   aws_cdk:
     runs-on: ubuntu-18.04
@@ -23,7 +27,7 @@ jobs:
         run: yarn build
  
       - name: CDK Deploy
-        if: contains(github.event_name, 'push')
+        if: contains(github.event_name, 'push') || github.pull_request.merged == true
         run: yarn cdk:deploy
         env:
           AWS_DEFAULT_REGION: 'ap-northeast-1'

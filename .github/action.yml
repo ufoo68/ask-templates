@@ -3,7 +3,7 @@ name: cdk
 on:
   push:
     branches:
-      - masterr
+      - master
   pull_request:
     types: [closed]
     branches:

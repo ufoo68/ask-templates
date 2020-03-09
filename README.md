@@ -17,4 +17,4 @@ ask new --url https://asktemplatesstack-bucket83908e77-x9vhv4xdr8m4.s3-ap-northe
 3. Add your github repository url of Alexa skill template(Please add list above)
 4. Checkout branch and commit your forked repository
 5. Create pull-request
-6. This template will deploy if merged this pull-request
+6. This template will deploy if merged this pull-request via [GitHub actions](https://github.co.jp/features/actions)
